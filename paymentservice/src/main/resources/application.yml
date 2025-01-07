@@ -1,9 +1,19 @@
 spring:
   application:
     name: paymentservice
-
+  datasource:
+    url:
+    # username:
+    # password:
+  jpa:
+    # properties:
+    #   hibernate:
+    #     dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
 server:
-  port: 8082
+  port: 8083
 
 eureka:
   client:

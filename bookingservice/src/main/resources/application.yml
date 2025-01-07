@@ -1,7 +1,17 @@
 spring:
   application:
     name: bookingservice
-
+  datasource:
+    url:
+    # username:
+    # password:
+  jpa:
+    # properties:
+    #   hibernate:
+    #     dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
 server:
   port: 8081
 
