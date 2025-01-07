@@ -1,9 +1,11 @@
 package com.bookingservice.bookingservice.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bookingservice.bookingservice.dto.BookingDto;
+import com.bookingservice.bookingservice.dto.PaymentDto;
 import com.bookingservice.bookingservice.service.BookingserviceService;
 
 import lombok.RequiredArgsConstructor;
@@ -28,6 +30,12 @@ public class BookingServiceController {
     @PostMapping("/hotel/booking")
     public Object bookRoom(@RequestBody BookingDto bookingDto) {
         Object booking = bookingserviceService.createBookingObject(bookingDto);
+        return booking;
+    }
+
+    @PostMapping("/hotel/booking/{bookingId}/transaction")
+    public Object confirmBook(@RequestBody PaymentDto paymentDto, @PathVariable int bookingId) {
+        Object booking = bookingserviceService.confirmBooking(paymentDto);
         return booking;
     }
 
